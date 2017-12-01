@@ -85,6 +85,6 @@ class CreditCheckTest < Minitest::Test
   #   cc = CreditCheck.new
   #
   #   assert_equal "Checking validity of American Express card...", cc.is_valid?(3)
-  end
+  # end
   #not sure how to test this part^^
 end

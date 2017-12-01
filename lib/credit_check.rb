@@ -2,6 +2,17 @@ require "pry"
 class CreditCheck
 
   def is_valid?(card_number)
+    card_type_indicator(card_number)
+    check_validity(
+      sum_the_digits(
+        convert_double_digit_indices_to_single_digit(
+          double_every_second_digit(
+            split_and_reverse_card_number(card_number)))))
+  end
+
+  private
+
+  def card_type_indicator(card_number)
     if card_number.to_s.chars.first.to_i == 3
       p "Checking validity of American Express card..."
     elsif card_number.to_s.chars.first.to_i == 4
@@ -12,14 +23,7 @@ class CreditCheck
       p "Checking validity of Discover card..."
     else "Not Sure"
     end
-    check_validity(
-      sum_the_digits(
-        convert_double_digit_indices_to_single_digit(
-          double_every_second_digit(
-            split_and_reverse_card_number(card_number)))))
   end
-
-  # private
 
   def split_and_reverse_card_number(card_number)
     card_number = card_number.to_s.split("").reverse
