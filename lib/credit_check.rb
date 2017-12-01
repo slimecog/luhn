@@ -19,7 +19,7 @@ class CreditCheck
             split_and_reverse_card_number(card_number)))))
   end
 
-  private
+  # private
 
   def split_and_reverse_card_number(card_number)
     card_number = card_number.to_s.split("").reverse
@@ -29,8 +29,7 @@ class CreditCheck
     card_number.each_with_index.map do |digit, index|
       if index % 2 == 0
         digit = digit.to_i
-        elsif index % 2 != 0
-        digit = digit.to_i * 2
+        else digit = digit.to_i * 2
       end
     end
   end
@@ -51,7 +50,6 @@ class CreditCheck
   end
 
   def check_validity(card_number)
-    binding.pry
     if card_number % 10 == 0
       "Valid Card"
     else "Invalid Card"

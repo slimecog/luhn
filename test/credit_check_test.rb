@@ -81,8 +81,10 @@ class CreditCheckTest < Minitest::Test
     assert_equal "Invalid Card", cc.is_valid?(5541801923795240)
   end
 
-  # def test_can_work_for_amex
+  # def test_it_can_tell_which_cxard_type_is_entered
   #   cc = CreditCheck.new
-
-
+  #
+  #   assert_equal "Checking validity of American Express card...", cc.is_valid?(3)
+  end
+  #not sure how to test this part^^
 end
