@@ -10,7 +10,7 @@ class CreditCheck
             split_and_reverse_card_number(card_number)))))
   end
 
-  private
+  # private
 
   def card_type_indicator(card_number)
     if card_number.to_s.chars.first.to_i == 3
@@ -21,7 +21,7 @@ class CreditCheck
       p "Checking validity of MasterCard..."
     elsif card_number.to_s.chars.first.to_i == 6
       p "Checking validity of Discover card..."
-    else "Not Sure"
+    else "Checking validity of Unknown Card Type..."
     end
   end
 
