@@ -10,14 +10,12 @@ require_relative "../lib/credit_check"
 class CreditCheckTest < Minitest::Test
 
   def test_it_exists
-    skip
     cc = CreditCheck.new
 
     assert_instance_of CreditCheck, cc
   end
 
   def test_card_number_can_be_split_and_reversed
-    skip
     cc = CreditCheck.new
 
     assert_instance_of Array, cc.split_and_reverse_card_number(123456789)
@@ -25,7 +23,6 @@ class CreditCheckTest < Minitest::Test
   end
 
   def test_card_number_can_have_every_other_digit_doubled
-    skip
     cc = CreditCheck.new
 
     number = cc.split_and_reverse_card_number(123456789)
@@ -34,7 +31,6 @@ class CreditCheckTest < Minitest::Test
   end
 
   def test_two_digit_indices_can_be_simplified
-    skip
     cc = CreditCheck.new
 
     number = cc.split_and_reverse_card_number(123456789)
@@ -44,7 +40,6 @@ class CreditCheckTest < Minitest::Test
   end
 
   def test_digits_can_be_summed
-    skip
     cc = CreditCheck.new
 
     number = cc.split_and_reverse_card_number(123456789)
@@ -55,7 +50,6 @@ class CreditCheckTest < Minitest::Test
   end
 
   def test_validity_can_be_accessed
-    skip
     cc = CreditCheck.new
 
     number = cc.split_and_reverse_card_number(123456789)
@@ -86,4 +80,9 @@ class CreditCheckTest < Minitest::Test
     assert_equal "Valid Card", cc.is_valid?(5541808923795240)
     assert_equal "Invalid Card", cc.is_valid?(5541801923795240)
   end
+
+  # def test_can_work_for_amex
+  #   cc = CreditCheck.new
+
+
 end

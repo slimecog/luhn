@@ -1,6 +1,17 @@
+require "pry"
 class CreditCheck
 
   def is_valid?(card_number)
+    if card_number.to_s.chars.first.to_i == 3
+      p "Checking validity of American Express card..."
+    elsif card_number.to_s.chars.first.to_i == 4
+      p "Checking validity of Visa card..."
+    elsif card_number.to_s.chars.first.to_i == 5
+      p "Checking validity of MasterCard..."
+    elsif card_number.to_s.chars.first.to_i == 6
+      p "Checking validity of Discover card..."
+    else "Not Sure"
+    end
     check_validity(
       sum_the_digits(
         convert_double_digit_indices_to_single_digit(
@@ -25,7 +36,7 @@ class CreditCheck
   end
 
   def convert_double_digit_indices_to_single_digit(card_number)
-    card_number.each_with_index.map do |digit, index|
+    card_number.map do |digit|
       if digit >= 10
         digit = digit - 9
       else digit = digit
@@ -40,6 +51,7 @@ class CreditCheck
   end
 
   def check_validity(card_number)
+    binding.pry
     if card_number % 10 == 0
       "Valid Card"
     else "Invalid Card"
